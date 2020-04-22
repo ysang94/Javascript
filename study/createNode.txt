@@ -1,0 +1,27 @@
+Javascript 문법 노드 생성 함수 정의
+let createNode = function(type, className, html, id, subType, value, options){
+	let node = document.createElement(type);
+	
+	if(className) {
+		node.className = className;
+	}
+	if(html){
+		node.innerHTML = html;
+	}
+	if(id){
+		node.setAttribute("id", id);
+		node.setAttribute("name", id);
+	}
+	if(subType){
+		node.setAttribute("type", subType);
+	}
+	if(value){
+		node.value = value;
+	}
+	if(typeof(options) != "undefined"){
+		for( let option of options){
+			node.setAttribute(option[0], option[1]);
+		}
+	}
+	return node;
+}
